@@ -103,8 +103,20 @@ searchBox.addEventListener("keyup", (event) => {
   const allCards = Array.from(document.querySelectorAll(".card"));
   const inputValue = event.target.value;
 
-  allCards.forEach((card) => {
+  var filteredCards = [];
+  filteredCards = allCards.filter((card) => {
+    const region = document.querySelector(".region").value;
+    const regionOfCard = card.querySelector("#region").innerText;
+    if (regionOfCard.includes(region) || region == "none") {
+      return true;
+    } else {
+      return false;
+    }
+  });
+
+  filteredCards.forEach((card) => {
     const countryName = card.querySelector(".about-data h1").innerText;
+
     if (!countryName.toLowerCase().includes(inputValue.toLowerCase())) {
       card.style.display = "none";
     } else {
@@ -119,7 +131,18 @@ selectBox.addEventListener("change", (event) => {
   const region = event.target.value;
   const allCards = Array.from(document.querySelectorAll(".card"));
 
-  allCards.forEach((card) => {
+  var filteredCards = [];
+  filteredCards = allCards.filter((card) => {
+    const countryName = card.querySelector(".about-data h1").innerText;
+    const inputValue = document.querySelector(".searchbar input").value;
+    if (!countryName.toLowerCase().includes(inputValue.toLowerCase())) {
+      return false;
+    } else {
+      return true;
+    }
+  });
+
+  filteredCards.forEach((card) => {
     const regionOfCard = card.querySelector("#region").innerText;
 
     if (regionOfCard.includes(region) || region == "none") {
