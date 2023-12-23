@@ -48,10 +48,12 @@ const uploadData = async () => {
 };
 
 uploadData();
+
 const themeBtn = document.querySelector(".changemode");
 
 themeBtn.addEventListener("click", () => {
   const body = document.querySelector("body");
+
   if (body.style.backgroundColor == "var(--veryDarkBlue)") {
     body.style.backgroundColor = "var(--veryLightGrey)";
   } else {
@@ -76,4 +78,20 @@ themeBtn.addEventListener("click", () => {
   const moonIcon = document.querySelector(".changemode i");
   moonIcon.classList.toggle("fa-regular");
   moonIcon.classList.toggle("fa-solid");
+});
+
+const searchBox = document.querySelector(".searchbar input");
+
+searchBox.addEventListener("keyup", (event) => {
+  const allCards = Array.from(document.querySelectorAll(".card"));
+  const inputValue = event.target.value;
+
+  allCards.forEach((card) => {
+    const countryName = card.querySelector(".about-data h1").innerText;
+    if(!countryName.toLowerCase().includes(inputValue.toLowerCase())){
+      card.style.display = "none";
+    } else{
+      card.style.display = "block";
+    }
+  });
 });
