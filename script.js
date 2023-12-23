@@ -101,7 +101,7 @@ const searchBox = document.querySelector(".searchbar input");
 
 searchBox.addEventListener("keyup", (event) => {
   const allCards = Array.from(document.querySelectorAll(".card"));
-  const inputValue = event.target.value;
+  const inputValue = event.target.value.trim();
 
   var filteredCards = [];
   filteredCards = allCards.filter((card) => {
@@ -134,7 +134,7 @@ selectBox.addEventListener("change", (event) => {
   var filteredCards = [];
   filteredCards = allCards.filter((card) => {
     const countryName = card.querySelector(".about-data h1").innerText;
-    const inputValue = document.querySelector(".searchbar input").value;
+    const inputValue = document.querySelector(".searchbar input").value.trim();
     if (!countryName.toLowerCase().includes(inputValue.toLowerCase())) {
       return false;
     } else {
