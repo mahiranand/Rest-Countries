@@ -6,7 +6,13 @@ const uploadData = async () => {
   const datas = await res.json();
 
   const unorderList = document.querySelector(".cards");
+  var regionsData = {};
+
   for (const data of datas) {
+    if (!regionsData[data["region"]]) {
+      regionsData[data["region"]] = 1;
+    }
+
     const list = document.createElement("li");
     list.classList.add("card");
 
@@ -23,14 +29,17 @@ const uploadData = async () => {
     infoDiv.classList.add("info-data");
 
     const populationPara = document.createElement("p");
+    populationPara.id = "population";
     populationPara.innerHTML = `<b>Population: </b>${data[
       "population"
     ].toLocaleString()}`;
 
     const regionPara = document.createElement("p");
+    regionPara.id = "region";
     regionPara.innerHTML = `<b>Region: </b>${data["region"]}`;
 
     const captialPara = document.createElement("p");
+    captialPara.id = "capital";
     captialPara.innerHTML = `<b>Capital: </b>${data["capital"]}`;
 
     infoDiv.append(populationPara);
@@ -45,6 +54,14 @@ const uploadData = async () => {
 
     unorderList.append(list);
   }
+
+  Object.keys(regionsData).forEach((region) => {
+    const option = document.createElement("option");
+    option.innerText = region;
+    option.value = region;
+    const selectTag = document.querySelector(".region");
+    selectTag.append(option);
+  });
 };
 
 uploadData();
@@ -88,10 +105,27 @@ searchBox.addEventListener("keyup", (event) => {
 
   allCards.forEach((card) => {
     const countryName = card.querySelector(".about-data h1").innerText;
-    if(!countryName.toLowerCase().includes(inputValue.toLowerCase())){
+    if (!countryName.toLowerCase().includes(inputValue.toLowerCase())) {
       card.style.display = "none";
-    } else{
+    } else {
       card.style.display = "block";
+    }
+  });
+});
+
+var selectBox = document.querySelector(".region");
+
+selectBox.addEventListener("change", (event) => {
+  const region = event.target.value;
+  const allCards = Array.from(document.querySelectorAll(".card"));
+
+  allCards.forEach((card) => {
+    const regionOfCard = card.querySelector("#region").innerText;
+
+    if (regionOfCard.includes(region) || region == "none") {
+      card.style.display = "block"
+    } else {
+      card.style.display = "none";
     }
   });
 });
