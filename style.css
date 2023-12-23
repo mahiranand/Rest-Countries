@@ -28,7 +28,7 @@ nav {
     rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
-nav h1 {
+.heading {
   font-weight: 800;
   color: var(--veryDarkBlue);
 }
@@ -43,6 +43,7 @@ nav h1 {
 .changemode {
   display: flex;
   align-items: center;
+  cursor: pointer;
 }
 
 .container-search {
@@ -92,7 +93,7 @@ nav h1 {
     rgba(17, 17, 26, 0.1) 0px 0px 8px;
 }
 
-.dropdown select {
+.region {
   width: 100%;
   padding-right: 10%;
   border: none;
@@ -115,6 +116,7 @@ nav h1 {
   box-shadow: rgba(17, 17, 26, 0.05) 0px 1px 0px,
     rgba(17, 17, 26, 0.1) 0px 0px 8px;
   margin: 0 10% 2.5rem 10%;
+  background-color: var(--white);
 }
 
 .card img {
@@ -146,6 +148,18 @@ nav h1 {
   color: var(--veryDarkBlueText);
   font-size: 0.9rem;
   margin: 0.4rem 0;
+}
+
+.darkBackground {
+  background-color: var(--darkBlue);
+}
+
+.fontColor {
+  color: white !important;
+}
+
+.fa-solid{
+  color: white;
 }
 
 @media (min-width: 600px) {
@@ -181,7 +195,7 @@ nav h1 {
   nav h1 {
     font-size: 1.5rem;
   }
-  .changemode h2{
+  .changemode h2 {
     font-size: 1.2rem;
   }
 }
