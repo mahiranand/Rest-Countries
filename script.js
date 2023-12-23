@@ -123,7 +123,7 @@ selectBox.addEventListener("change", (event) => {
     const regionOfCard = card.querySelector("#region").innerText;
 
     if (regionOfCard.includes(region) || region == "none") {
-      card.style.display = "block"
+      card.style.display = "block";
     } else {
       card.style.display = "none";
     }
