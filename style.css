@@ -160,18 +160,27 @@ nav h1 {
     margin-left: 0.5rem;
     margin-right: 0.5rem;
   }
-  .container-search{
+  .container-search {
     flex-direction: row;
     justify-content: space-between;
     padding-left: 1rem;
     padding-right: 1rem;
     margin-bottom: 0;
   }
-  .searchbar{
+  .searchbar {
     min-width: 50%;
   }
-  .dropdown{
+  .dropdown {
     width: 15%;
     min-width: 15rem;
+  }
+  nav {
+    padding: 2.5rem;
+  }
+  nav h1 {
+    font-size: 1.5rem;
+  }
+  .changemode h2{
+    font-size: 1.2rem;
   }
 }
