@@ -34,6 +34,7 @@ nav {
 }
 
 .changemode h2 {
+  user-select: none;
   font-weight: 600;
   font-size: 0.8rem;
   margin-left: 0.5rem;
