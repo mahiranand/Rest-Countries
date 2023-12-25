@@ -100,55 +100,35 @@ themeBtn.addEventListener("click", () => {
 const searchBox = document.querySelector(".searchbar input");
 
 searchBox.addEventListener("keyup", (event) => {
-  const allCards = Array.from(document.querySelectorAll(".card"));
   const inputValue = event.target.value.trim();
-
-  var filteredCards = [];
-  filteredCards = allCards.filter((card) => {
-    const region = document.querySelector(".region").value;
-    const regionOfCard = card.querySelector("#region").innerText;
-    if (regionOfCard.includes(region) || region == "none") {
-      return true;
-    } else {
-      return false;
-    }
-  });
-
-  filteredCards.forEach((card) => {
-    const countryName = card.querySelector(".about-data h1").innerText;
-
-    if (!countryName.toLowerCase().includes(inputValue.toLowerCase())) {
-      card.style.display = "none";
-    } else {
-      card.style.display = "block";
-    }
-  });
+  Array.from(document.querySelectorAll(".card"))
+    .filter((card) => {
+      const region = document.querySelector(".region").value;
+      const regionOfCard = card.querySelector("#region").innerText;
+      return regionOfCard.includes(region) || region == "none" ? true : false;
+    })
+    .forEach((card) => {
+      const countryName = card.querySelector(".about-data h1").innerText;
+      countryName.toLowerCase().includes(inputValue.toLowerCase())
+        ? (card.style.display = "block")
+        : (card.style.display = "none");
+    });
 });
 
 var selectBox = document.querySelector(".region");
 
 selectBox.addEventListener("change", (event) => {
   const region = event.target.value;
-  const allCards = Array.from(document.querySelectorAll(".card"));
-
-  var filteredCards = [];
-  filteredCards = allCards.filter((card) => {
-    const countryName = card.querySelector(".about-data h1").innerText;
-    const inputValue = document.querySelector(".searchbar input").value.trim();
-    if (!countryName.toLowerCase().includes(inputValue.toLowerCase())) {
-      return false;
-    } else {
-      return true;
-    }
-  });
-
-  filteredCards.forEach((card) => {
-    const regionOfCard = card.querySelector("#region").innerText;
-
-    if (regionOfCard.includes(region) || region == "none") {
-      card.style.display = "block";
-    } else {
-      card.style.display = "none";
-    }
-  });
+  Array.from(document.querySelectorAll(".card"))
+    .filter((card) => {
+      const countryName = card.querySelector(".about-data h1").innerText;
+      const inputValue = document.querySelector(".searchbar input").value.trim();
+      return countryName.toLowerCase().includes(inputValue.toLowerCase())? true : false;
+    })
+    .forEach((card) => {
+      const regionOfCard = card.querySelector("#region").innerText;
+      regionOfCard.includes(region) || region == "none"
+        ? (card.style.display = "block")
+        : (card.style.display = "none");
+    });
 });
