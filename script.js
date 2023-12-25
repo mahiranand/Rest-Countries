@@ -1,5 +1,4 @@
-const url =
-  "https://restcountries.com/v3.1/all?fields=name,flags,population,region,capital";
+const url = "https://restcountries.com/v3.1/all";
 
 const uploadData = async () => {
   const res = await fetch(url);
@@ -122,8 +121,12 @@ selectBox.addEventListener("change", (event) => {
   Array.from(document.querySelectorAll(".card"))
     .filter((card) => {
       const countryName = card.querySelector(".about-data h1").innerText;
-      const inputValue = document.querySelector(".searchbar input").value.trim();
-      return countryName.toLowerCase().includes(inputValue.toLowerCase())? true : false;
+      const inputValue = document
+        .querySelector(".searchbar input")
+        .value.trim();
+      return countryName.toLowerCase().includes(inputValue.toLowerCase())
+        ? true
+        : false;
     })
     .forEach((card) => {
       const regionOfCard = card.querySelector("#region").innerText;
