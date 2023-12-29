@@ -132,9 +132,10 @@ nav {
 }
 
 .about-data h1 {
+  min-height: 3.2rem;
+  max-width: 260px;
   font-size: 1.2rem;
   color: var(--veryDarkBlueText);
-  margin-bottom: 1.1rem;
   font-weight: 800;
 }
 
