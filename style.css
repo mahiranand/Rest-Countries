@@ -34,7 +34,6 @@ nav {
 }
 
 .changemode h2 {
-  user-select: none;
   font-weight: 600;
   font-size: 0.8rem;
   margin-left: 0.5rem;
@@ -125,7 +124,7 @@ nav {
 .card img {
   border-radius: 0.5rem 0.5rem 0 0;
   aspect-ratio: 16/9;
-  max-width: 320px;
+  width: 100%;
 }
 
 .about-data {
@@ -133,8 +132,7 @@ nav {
 }
 
 .about-data h1 {
-  height: 3rem;
-  width: 300px;
+  font-size: 1.2rem;
   color: var(--veryDarkBlueText);
   margin-bottom: 1.1rem;
   font-weight: 800;
@@ -162,7 +160,7 @@ nav {
   color: white !important;
 }
 
-.fa-solid {
+.fa-solid{
   color: white;
 }
 
